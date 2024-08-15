@@ -22,7 +22,7 @@ def register_user():
 def receive_messages_thread(token, to_username):
     while True:
         receive_messages(token, to_username)
-        time.sleep(2)  # Adjust polling interval as needed
+        time.sleep(2)
 
 def login_user():
     global username
@@ -75,8 +75,8 @@ def main():
                 while True:
                     message = input()
                     send_message(token, to_username, message)
-                    receive_messages(token, to_username)  # Replace username with actual logic
-                    time.sleep(2)  # Adjust polling interval as needed
+                    receive_messages(token, to_username)  
+                    time.sleep(2) 
         elif choice == "q":
             break
         else:
