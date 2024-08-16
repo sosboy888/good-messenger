@@ -30,10 +30,10 @@ async def write(message: message.Message, request: Request, current_user : dict 
     
     return {"message":"create successful"}
 
-@router.get("/messages/{message_uuid}/", tags=["messages"])
-async def get_message(message_uuid: str, request: Request, current_user : dict = Depends(get_current_user)):
-    from_id = message_uuid.split("|")[0]
-    to = message_uuid.split("|")[1]
+@router.post("/messages/fetch/", tags=["messages"])
+async def get_message(fetchRequest: message.FetchRequest, request: Request, current_user : dict = Depends(get_current_user)):
+    from_id = fetchRequest.from_id
+    to = fetchRequest.to
     result = await request.app.state.db.fetch_rows(
         fetch_query_received,
         from_id,

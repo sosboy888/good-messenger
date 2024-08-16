@@ -9,7 +9,7 @@ BASE_URL = "https://sosboy888.ngrok.pro"
 """
 For local server comment the line above and uncomment the line below
 """
-#BASE_URL = "https://127.0.0.1:8000"
+#BASE_URL = "http://127.0.0.1:8000"
 username = ""
 messages_set = set([])
 def register_user():
@@ -52,8 +52,8 @@ def send_message(token, to_username, message):
 def receive_messages(token, to_username):
     global username
     headers = {"Authorization": f"Bearer {token}"}
-    data = username + "|" + to_username
-    response = requests.get(f"{BASE_URL}/messages/{data}/", headers=headers)
+    data = {'from_id':username, 'to':to_username}
+    response = requests.post(f"{BASE_URL}/messages/fetch/", headers=headers, json=data)
     if response.status_code == 200:
         messages = response.json()["messages"]
         #print(messages)
