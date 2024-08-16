@@ -4,3 +4,6 @@ psycopg2-binary
 passlib
 python-jose
 python-multipart
+python-dotenv
+uvicorn
+asyncpg

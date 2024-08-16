@@ -6,6 +6,10 @@ import getpass
 import threading
 
 BASE_URL = "https://sosboy888.ngrok.pro"
+"""
+For local server comment the line above and uncomment the line below
+"""
+#BASE_URL = "https://127.0.0.1:8000"
 username = ""
 messages_set = set([])
 def register_user():
