@@ -5,7 +5,7 @@ import time
 import getpass
 import threading
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://sosboy888.ngrok.pro"
 username = ""
 messages_set = set([])
 def register_user():
